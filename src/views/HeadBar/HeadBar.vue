@@ -3,7 +3,7 @@
     <el-col
       :span="5"
       class="logo"
-      :class="isCollapse ? 'logo-collapse-width' : 'logo-width'"
+      :class="$store.state.collapse ? 'logo-collapse-width' : 'logo-width'"
     >
       <img :src="this.logo" /> {{ isCollapse ? sysName : sysName }}
     </el-col>
@@ -83,7 +83,7 @@ export default {
     },
     //折叠导航栏
     collapse: function() {
-      this.isCollapse = !this.isCollapse;
+      this.$store.commit("collapse");
     },
     //语言切换
     handleCommand(command) {
